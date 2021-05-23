@@ -2,6 +2,8 @@ let arc = require('@architect/functions')
 let data = require('@begin/data')
 
 exports.handler = async function execute(req) {
+  console.log(req.body)
+  
   let query = arc.http.helpers.bodyParser(req)
 
   let pages = await data.get({
