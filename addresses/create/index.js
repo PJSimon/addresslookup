@@ -2,6 +2,8 @@ let arc = require('@architect/functions')
 let data = require('@begin/data')
 
 exports.handler = async function create(req) {
+  console.log(req.body)
+
   let address = arc.http.helpers.bodyParser(req)
   address.created = Date.now()
   await data.set({
