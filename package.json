@@ -1,36 +1,51 @@
 {
   "name": "begin-app",
   "version": "0.0.0",
-  "description": "Begin basic CRUD app",
+  "description": "Address Lookup App",
   "arc": {
     "app": "crud-app",
     "http": [
       {
-        "/todos": {
+        "/addresses": {
           "method": "post",
-          "src": "/todos/create"
+          "src": "/addresses/create"
         }
       },
       {
-        "/todos": {
+        "/addresses": {
           "method": "get",
-          "src": "/todos/read"
+          "src": "/addresses/read"
         }
       },
       {
-        "/todos/delete": {
+        "/addresses/delete": {
           "method": "post",
-          "src": "/todos/delete"
+          "src": "/addresses/delete"
         }
       },
       {
-        "/todos/:id": {
+        "/addresses/:id": {
           "method": "post",
-          "src": "/todos/update"
+          "src": "/addresses/update"
+        }
+      },
+      {
+        "/search/:query": {
+          "method": "get",
+          "src": "/search/execute"
         }
       }
     ],
-    "tables": [
+    "addresses": [
+      {
+        "data": {
+          "scopeID": "*String",
+          "dataID": "**String",
+          "ttl": "TTL"
+        }
+      }
+    ],
+    "partialAddresses": [
       {
         "data": {
           "scopeID": "*String",
