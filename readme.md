@@ -38,3 +38,10 @@ The substrings have a min length of 3, since no searches are done on 1 or 2 char
 | partialAddress | 987654327 | 1621655407206 | 123 Main     |       |          |       |       | 123456789         |
 | partialAddress | 987654328 | 1621655407206 | 123 Main S   |       |          |       |       | 123456789         |
 | partialAddress | 987654329 | 1621655407206 | 123 Main St  |       |          |       |       | 123456789         |
+
+
+
+## Todo
+- Add better error handling / messages 
+  - Check if req obj can be resolved (Create, Update when no param passed)
+  
