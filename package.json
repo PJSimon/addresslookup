@@ -18,7 +18,13 @@
         }
       },
       {
-        "/addresses/destroy": {
+        "/todos/delete": {
+          "method": "post",
+          "src": "/todos/destroy"
+        }
+      },
+      {
+        "/addresses/delete": {
           "method": "post",
           "src": "/addresses/destroy"
         }
