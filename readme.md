@@ -45,3 +45,4 @@ The substrings have a min length of 3, since no searches are done on 1 or 2 char
 - Add better error handling / messages 
   - Check if req obj can be resolved (Create, Update when no param passed)
 - When deleting and address, need to delete all associated partialAddress records in the DB
+- Research and report Begin bug with CRUD app delete functionality
