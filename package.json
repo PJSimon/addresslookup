@@ -20,7 +20,7 @@
       {
         "/addresses/delete": {
           "method": "post",
-          "src": "/addresses/delete"
+          "src": "/addresses/destroy"
         }
       },
       {
