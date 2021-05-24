@@ -30,6 +30,12 @@
         }
       },
       {
+        "/partialAddresses/delete": {
+          "method": "post",
+          "src": "/partialAddresses/destroy"
+        }
+      },
+      {
         "/addresses/:id": {
           "method": "post",
           "src": "/addresses/update"
