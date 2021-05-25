@@ -2,10 +2,9 @@ let arc = require('@architect/functions')
 let data = require('@begin/data')
 
 exports.handler = async function execute(req) {
-  console.log(req.body)
+  let query = arc.http.helpers.bodyParser(req.query)
+  console.log(query)
   
-  let query = arc.http.helpers.bodyParser(req)
-
   let line1 = await data.get({
     table: 'partialAddresses',
     line1: query,
