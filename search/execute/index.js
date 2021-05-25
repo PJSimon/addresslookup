@@ -62,7 +62,7 @@ exports.handler = async function execute(req) {
 
   let zip_addresses = await data.get({
     table: 'addresses',
-    zip: query,
+    key: query,
     limit: 5
   })
 
@@ -79,9 +79,9 @@ exports.handler = async function execute(req) {
   console.log('zip_addresses' + JSON.stringify(zip_addresses))
 
 
-  // Get all unique address keys
-  console.log('Get all unique address keys')
-  let addressKeys = []
+//  // Get all unique address keys
+//  console.log('Get all unique address keys')
+//  let addressKeys = []
 //  for await (let partialAddress of line1) {
 //    if ( addressKeys.indexOf(partialAddress.addressFK) == -1 ) {
 //      addressKeys.push(partialAddress.addressFK)
@@ -128,11 +128,11 @@ exports.handler = async function execute(req) {
 //      addressKeys.push(address.key)
 //    }
 //  }
-  for await (let address of zip_addresses) {
-    if ( addressKeys.indexOf(address.key) == -1 ) {
-      addressKeys.push(address.key)
-    }
-  }
+//  for await (let address of zip_addresses) {
+//    if ( addressKeys.indexOf(address.key) == -1 ) {
+//      addressKeys.push(address.key)
+//    }
+//  }
 
   // Create query object to resolve address keys
 //  console.log('Create query object to resolve address keys')
