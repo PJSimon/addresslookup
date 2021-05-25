@@ -77,7 +77,7 @@ exports.handler = async function execute(req) {
 
   // Output Results
   console.log('Output Results')
-  console.log(queryObjects)
+  console.log(JSON.stringify(queryObjects))
   let pages = await data.get(queryObjects)
 
   let addresses = []
