@@ -6,14 +6,47 @@ exports.handler = async function create(req) {
 
   let address = arc.http.helpers.bodyParser(req)
   address.created = Date.now()
-  await data.set({
+  let record = await data.set({
     table: 'addresses',
     ...address
   })
 
-  for (var i = 2; i < address.zip.length - 1; i++) {
+  console.log(record)
+
+//  for (var i = 1; i < address.line1.length; i++) {
+//    let partialAddress = {}
+//    partialAddress.line1 = address.line1.substring(0,i)
+//    partialAddress.addressFK = record.key
+//    await data.set({
+//      table: 'partialAddresses',
+//      ...partialAddress
+//    })
+//  }
+//
+//  for (var i = 1; i < address.line2.length; i++) {
+//    let partialAddress = {}
+//    partialAddress.line2 = address.line2.substring(0,i)
+//    partialAddress.addressFK = record.key
+//    await data.set({
+//      table: 'partialAddresses',
+//      ...partialAddress
+//    })
+//  }
+//
+//  for (var i = 1; i < address.city.length; i++) {
+//    let partialAddress = {}
+//    partialAddress.city = address.city.substring(0,i)
+//    partialAddress.addressFK = record.key
+//    await data.set({
+//      table: 'partialAddresses',
+//      ...partialAddress
+//    })
+//  }
+
+  for (var i = 1; i < address.zip.length; i++) {
     let partialAddress = {}
     partialAddress.zip = address.zip.substring(0,i)
+    partialAddress.addressFK = record.key
     await data.set({
       table: 'partialAddresses',
       ...partialAddress
@@ -31,6 +64,6 @@ exports.handler = async function create(req) {
       'content-type': 'application/json; charset=utf8',
       'cache-control': 'no-cache, no-store, must-revalidate, max-age=0, s-maxage=0'
     },
-    body: JSON.stringify(address)
+    body: JSON.stringify(record)
   }
 }
