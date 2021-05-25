@@ -67,7 +67,7 @@ exports.handler = async function execute(req) {
 
   // Create query object to resolve address keys
   console.log('Create query object to resolve address keys')
-  let queryObjects = {}
+  let queryObjects = []
   for await (let addressKey of addressKeys) {
     let queryObject = {}
     queryObject.table = 'addresses'
