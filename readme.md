@@ -48,3 +48,4 @@ The substrings have a min length of 3, since no searches are done on 1 or 2 char
 - Research and report Begin bug with CRUD app delete functionality
 - Each query for partial addresses returns limit: 5 records.  It would be fun to play around with this to ensure a certain total and also a good distribution across the matched fields (line1, line2, city, state, zip)
 - State is only matched on two characters
+- Make Delete clear out partialAddresses

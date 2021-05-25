@@ -86,7 +86,7 @@ exports.handler = async function execute(req) {
     addresses.push(address)
   }
 
-  addresses.sort((a, b) => a.zip - b.zip)
+//  addresses.sort((a, b) => a.zip - b.zip)
 
   return {
     statusCode: 200,
