@@ -72,7 +72,7 @@ exports.handler = async function execute(req) {
     let queryObject = {}
     queryObject.table = 'addresses'
     queryObject.key = addressKey
-    queryObjects.push(queryObjects)
+    queryObjects.push(queryObject)
   }
 
   // Output Results
