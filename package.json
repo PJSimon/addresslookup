@@ -36,7 +36,7 @@
         }
       },
       {
-        "/search/:query": {
+        "/search": {
           "method": "get",
           "src": "/search/execute"
         }
