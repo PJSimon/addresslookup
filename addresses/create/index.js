@@ -8,6 +8,7 @@ exports.handler = async function create(req) {
   address.created = Date.now()
   let record = await data.set({
     table: 'addresses',
+    key: 'duplicate',
     ...address
   })
 
