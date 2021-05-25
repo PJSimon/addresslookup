@@ -35,6 +35,13 @@ exports.handler = async function execute(req) {
     zip: query,
     limit: 5
   })
+  
+   console.log('line1' + JSON.stringify(line1))
+   console.log('line2' + JSON.stringify(line1))
+   console.log('city' + JSON.stringify(city))
+   console.log('state' + JSON.stringify(state))
+   console.log('zip' + JSON.stringify(zip))
+
 
   // Get all unique address keys
   console.log('Get all unique address keys')
