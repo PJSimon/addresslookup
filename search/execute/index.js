@@ -75,6 +75,7 @@ exports.handler = async function execute(req) {
     queryObjects.push(queryObject)
   }
 
+
   // Output Results
   console.log('Output Results')
   console.log(JSON.stringify(queryObjects))
