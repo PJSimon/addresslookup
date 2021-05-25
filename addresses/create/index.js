@@ -13,7 +13,7 @@ exports.handler = async function create(req) {
 
   console.log(record)
 
-//  for (var i = 2; i < address.line1.length; i++) {
+//  for (var i = 1; i < address.line1.length; i++) {
 //    let partialAddress = {}
 //    partialAddress.line1 = address.line1.substring(0,i)
 //    partialAddress.addressFK = record.key
@@ -23,7 +23,7 @@ exports.handler = async function create(req) {
 //    })
 //  }
 //
-//  for (var i = 2; i < address.line2.length; i++) {
+//  for (var i = 1; i < address.line2.length; i++) {
 //    let partialAddress = {}
 //    partialAddress.line2 = address.line2.substring(0,i)
 //    partialAddress.addressFK = record.key
@@ -33,7 +33,7 @@ exports.handler = async function create(req) {
 //    })
 //  }
 //
-//  for (var i = 2; i < address.city.length; i++) {
+//  for (var i = 1; i < address.city.length; i++) {
 //    let partialAddress = {}
 //    partialAddress.city = address.city.substring(0,i)
 //    partialAddress.addressFK = record.key
@@ -43,7 +43,7 @@ exports.handler = async function create(req) {
 //    })
 //  }
 
-  for (var i = 2; i < address.zip.length; i++) {
+  for (var i = 1; i < address.zip.length; i++) {
     let partialAddress = {}
     partialAddress.zip = address.zip.substring(0,i)
     partialAddress.addressFK = record.key
