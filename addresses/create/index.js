@@ -11,12 +11,14 @@ exports.handler = async function create(req) {
     ...address
   })
 
-
-  let partialAddress.zip = address.zip.substring(0,3)
-//  await data.set({
-//    table: 'partialAddresses',
-//    ...partialAddress
-//  })
+  for (var i = 2; i < address.zip.length - 1; i++) {
+    let partialAddress = {}
+    partialAddress.zip = address.zip.substring(0,i)
+    await data.set({
+      table: 'partialAddresses',
+      ...partialAddress
+    })
+  }
 
   return {
     // statusCode: 302,
