@@ -53,5 +53,7 @@ The substrings have a min length of 3, since no searches are done on 1 or 2 char
 - make Load Addresses method
 - Add tests
 - Use a more functional DB, else if current DB used, make Create transactional
+  - With a relational DB, I'd implement more robust search that puts the wildcard matching logic into the query.
+  - Also, it'd be easier to sort the results based on the address part the query matched with.
 - Add Auth, rate limiting
 

@@ -2,17 +2,14 @@ let arc = require('@architect/functions')
 let data = require('@begin/data')
 
 exports.handler = async function destroyAll(req) {
-
+  // Delete all address records
   let addressPages = {}
-
   do {
-    console.log("Get Addresses")
     addressPages = await data.get({
       table: 'addresses',
       limit: 25
     })
 
-console.log(addressPages)
     let addresses = []
     for await (let address of addressPages) {
     console.log(address.key)
@@ -23,23 +20,23 @@ console.log(addressPages)
     }
   } while (addressPages.length > 0)
 
-let partialAddressPages = {}
+  // Delete all lookup records
+  let lookupPages = {}
   do {
-  console.log("Get Partial Addresses")
-      partialAddressPages = await data.get({
-        table: 'partialAddresses',
+      lookupPages = await data.get({
+        table: 'lookups',
         limit: 25
       })
 
       let addresses = []
-      for await (let address of partialAddressPages) {
+      for await (let address of lookupPages) {
         console.log(address.key)
         await data.destroy({
             key: address.key,
-            table: 'partialAddresses'
+            table: 'lookups'
         })
       }
-    } while (partialAddressPages.length > 0)
+    } while (lookupPages.length > 0)
 
   return {
     statusCode: 204,

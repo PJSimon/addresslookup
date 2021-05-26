@@ -5,7 +5,6 @@ exports.handler = async function update(req) {
   console.log(req.body)
 
   let address = arc.http.helpers.bodyParser(req)
-  // todo.completed = !!todo.completed
   await data.set({
     table: 'addresses',
     ...address

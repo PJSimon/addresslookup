@@ -7,7 +7,7 @@ exports.handler = async function destroy(req) {
   let key = arc.http.helpers.bodyParser(req).key
   await data.destroy({
     key,
-    table: 'partialAddresses'
+    table: 'lookups'
   })
   return {
     statusCode: 204,
