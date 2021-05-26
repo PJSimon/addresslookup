@@ -61,10 +61,11 @@ exports.handler = async function create(req) {
       }
     }
     else {
-    partialAddress = {
-        addressFK = "[" + record.key + "]"
+      partialAddress = {
+        addressFK: "[" + record.key + "]"
+      }
     }
-      
+
     //Create of update the record
     await data.set({
       table: 'partialAddresses',
