@@ -12,6 +12,7 @@ exports.handler = async function destroyAll(req) {
       limit: 25
     })
 
+console.log(addressPages)
     let addresses = []
     for await (let address of addressPages) {
     console.log(address.key)
