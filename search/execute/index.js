@@ -104,8 +104,9 @@ exports.handler = async function execute(req) {
 //  }
 //  for (let partialAddress of zip) {
 //    if ( addressKeys.indexOf(partialAddress.addressFK) == -1 ) {
+    if (zip_addresses != null) {
       addressKeys.push(zip.addressFK)
-//    }
+    }
 //  }
 
 //  for await (let address of line1_addresses) {
@@ -130,7 +131,9 @@ exports.handler = async function execute(req) {
 //  }
 //  for (let address of zip_addresses) {
 //    if ( addressKeys.indexOf(address.key) == -1 ) {
-      addressKeys.push(zip_addresses.key)
+      if (zip_addresses != null) {
+        addressKeys.push(zip_addresses.key)
+      }
 //    }
 //  }
 
