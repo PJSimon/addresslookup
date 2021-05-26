@@ -3,45 +3,39 @@ let data = require('@begin/data')
 
 exports.handler = async function destroyAll(req) {
 
-  let pages = {}
+  let addressPages = {}
 
   do {
-    pages = await data.get({
+    addressPages = await data.get({
       table: 'addresses',
       limit: 25
     })
 
     let addresses = []
-    for await (let address of pages) {
+    for await (let address of addressPages) {
       await data.destroy({
           key: address.key,
           table: 'addresses'
       })
     }
-  } while (pages != null)
+  } while (addressPages != null)
 
+let partialAddressPages = {}
   do {
-      pages = await data.get({
+      partialAddressPages = await data.get({
         table: 'partialAddresses',
         limit: 25
       })
 
       let addresses = []
-      for await (let address of pages) {
+      for await (let address of partialAddressPages) {
         await data.destroy({
             key: address.key,
             table: 'partialAddresses'
         })
       }
-    } while (pages != null)
-
-
-
-  let key = arc.http.helpers.bodyParser(req).key
-  await data.destroy({
-    key,
-    table: 'addresses'
-  })
+    } while (partialAddressPages != null)
+    
   return {
     statusCode: 204,
     headers: {
