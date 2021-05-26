@@ -14,7 +14,7 @@ exports.handler = async function destroyAll(req) {
     let addresses = []
     for await (let address of pages) {
       await data.destroy({
-          address.key,
+          key: address.key,
           table: 'addresses'
       })
     }
@@ -29,7 +29,7 @@ exports.handler = async function destroyAll(req) {
       let addresses = []
       for await (let address of pages) {
         await data.destroy({
-            address.key,
+            key: address.key,
             table: 'partialAddresses'
         })
       }
