@@ -21,7 +21,7 @@ console.log(addressPages)
           table: 'addresses'
       })
     }
-  } while (addressPages != null)
+  } while (addressPages.length > 0)
 
 let partialAddressPages = {}
   do {
@@ -39,7 +39,7 @@ let partialAddressPages = {}
             table: 'partialAddresses'
         })
       }
-    } while (partialAddressPages != null)
+    } while (partialAddressPages.length > 0)
 
   return {
     statusCode: 204,
