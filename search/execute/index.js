@@ -102,11 +102,11 @@ exports.handler = async function execute(req) {
 //      addressKeys.push(partialAddress.addressFK)
 //    }
 //  }
-  for (let partialAddress of zip) {
-    if ( addressKeys.indexOf(partialAddress.addressFK) == -1 ) {
-      addressKeys.push(partialAddress.addressFK)
-    }
-  }
+//  for (let partialAddress of zip) {
+//    if ( addressKeys.indexOf(partialAddress.addressFK) == -1 ) {
+      addressKeys.push(zip.addressFK)
+//    }
+//  }
 
 //  for await (let address of line1_addresses) {
 //    if ( addressKeys.indexOf(address.key) == -1 ) {
@@ -128,11 +128,11 @@ exports.handler = async function execute(req) {
 //      addressKeys.push(address.key)
 //    }
 //  }
-  for (let address of zip_addresses) {
-    if ( addressKeys.indexOf(address.key) == -1 ) {
-      addressKeys.push(address.key)
-    }
-  }
+//  for (let address of zip_addresses) {
+//    if ( addressKeys.indexOf(address.key) == -1 ) {
+      addressKeys.push(zip_addresses.key)
+//    }
+//  }
 
   // Create query object to resolve address keys
   console.log('Create query object to resolve address keys')
