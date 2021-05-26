@@ -36,6 +36,12 @@
         }
       },
       {
+        "/addresses/deleteAll": {
+          "method": "post",
+          "src": "/addresses/destroyAll"
+        }
+      },
+      {
         "/search": {
           "method": "get",
           "src": "/search/execute"
