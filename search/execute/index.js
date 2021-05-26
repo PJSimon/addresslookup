@@ -102,7 +102,7 @@ exports.handler = async function execute(req) {
 //      addressKeys.push(partialAddress.addressFK)
 //    }
 //  }
-  for await (let partialAddress of zip) {
+  for (let partialAddress of zip) {
     if ( addressKeys.indexOf(partialAddress.addressFK) == -1 ) {
       addressKeys.push(partialAddress.addressFK)
     }
