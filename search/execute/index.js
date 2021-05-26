@@ -104,7 +104,7 @@ exports.handler = async function execute(req) {
 //  }
 //  for (let partialAddress of zip) {
 //    if ( addressKeys.indexOf(partialAddress.addressFK) == -1 ) {
-    if (zip_addresses != null) {
+    if (zip != null) {
       addressKeys.push(zip.addressFK)
     }
 //  }
@@ -139,6 +139,7 @@ exports.handler = async function execute(req) {
 
   // Create query object to resolve address keys
   console.log('Create query object to resolve address keys')
+  console.log(addressKeys)
   let queryObjects = []
   for (let addressKey of addressKeys) {
     let queryObject = {}
