@@ -98,7 +98,7 @@ exports.handler = async function create(req) {
   }
 }
 
-async function createPartialAddressRecord(addressField, FK) {
+exports.handler = async function createPartialAddressRecord(addressField, FK) {
   console.log("createPartialAddressRecord")
   for (var i = 2; i <= addressField.length; i++) {
     let key = addressField.substring(0,i)
@@ -126,7 +126,7 @@ async function createPartialAddressRecord(addressField, FK) {
       }
     }
 
-    //Create of update the record
+    //Create or update the record
     await data.set({
       table: 'partialAddresses',
       key: key,
