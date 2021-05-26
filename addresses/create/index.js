@@ -44,11 +44,30 @@ exports.handler = async function create(req) {
 //  }
 
   for (var i = 1; i < address.zip.length; i++) {
+    let key = address.zip.substring(0,i)
     let partialAddress = {}
-    partialAddress.addressFK = record.key
+
+    //check if partialAddress already exists
+    partialAddress = await data.get({
+      table: 'partialAddresses',
+      key: key,
+      limit: 5
+    })
+
+    //If it exists, add the FK to the array, else create the record with a single-element array
+    if (partialAddress != null) {
+      if (partialAddress.addressFK.includes(record.key) == false) {
+        partialAddress.addressFK.substring(0, partialAddress.addressFK.length - 1) = partialAddress.addressFK + ", " + record.key + "]"
+      }
+    }
+    else {
+      partialAddress.addressFK = "[" + record.key + "]"
+    }
+
+    //Create of update the record
     await data.set({
       table: 'partialAddresses',
-      key: address.zip.substring(0,i),
+      key: key,
       ...partialAddress
     })
   }
