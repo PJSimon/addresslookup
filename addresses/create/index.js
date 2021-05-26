@@ -95,7 +95,7 @@ exports.handler = async function create(req) {
     },
     body: JSON.stringify(record)
   }
-},
+};
 async function createPartialAddressRecord(addressField, FK) {
   for (var i = 2; i <= addressField.length; i++) {
     let key = addressField.substring(0,i)
