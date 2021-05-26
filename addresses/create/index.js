@@ -75,6 +75,10 @@ exports.handler = async function create(req) {
 //      key: key,
 //      ...partialAddress
 //    })
+    createPartialAddressRecord(address.line1, record.key)
+    createPartialAddressRecord(address.line2, record.key)
+    createPartialAddressRecord(address.city, record.key)
+    createPartialAddressRecord(address.state, record.key)
     createPartialAddressRecord(address.zip, record.key)
   }
 
@@ -91,7 +95,7 @@ exports.handler = async function create(req) {
     },
     body: JSON.stringify(record)
   }
-}
+},
 async function createPartialAddressRecord(addressField, FK) {
   for (var i = 2; i <= addressField.length; i++) {
     let key = addressField.substring(0,i)
