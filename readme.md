@@ -28,16 +28,16 @@ The substrings have a min length of 3, since no searches are done on 1 or 2 char
 
 | TABLE          | KEY       | CREATED       | line1        | line2 | city     | state | zip   | FULL ADDRESS (FK) |
 |----------------|-----------|---------------|--------------|-------|----------|-------|-------|-------------------|
-| fullAddress    | 123456789 | 1621655407206 | 123 Main St. |       | Hartford | CT    | 06103 |                   |
-| partialAddress | 987654321 | 1621655407206 | 123          |       | Har      |       | 061   | 123456789         |
-| partialAddress | 987654322 | 1621655407206 | 123          |       | Hart     |       | 0610  | 123456789         |
-| partialAddress | 987654323 | 1621655407206 | 123 M        |       | Hartf    |       |       | 123456789         |
-| partialAddress | 987654324 | 1621655407206 | 123 Ma       |       | Hartfo   |       |       | 123456789         |
-| partialAddress | 987654325 | 1621655407206 | 123 Mai      |       | Hartfor  |       |       | 123456789         |
-| partialAddress | 987654326 | 1621655407206 | 123 Main     |       |          |       |       | 123456789         |
-| partialAddress | 987654327 | 1621655407206 | 123 Main     |       |          |       |       | 123456789         |
-| partialAddress | 987654328 | 1621655407206 | 123 Main S   |       |          |       |       | 123456789         |
-| partialAddress | 987654329 | 1621655407206 | 123 Main St  |       |          |       |       | 123456789         |
+| addresses      | 123456789 | 1621655407206 | 123 Main St. |       | Hartford | CT    | 06103 |                   |
+| lookups        | 987654321 | 1621655407206 | 123          |       | Har      |       | 061   | 123456789         |
+| lookups        | 987654322 | 1621655407206 | 123          |       | Hart     |       | 0610  | 123456789         |
+| lookups        | 987654323 | 1621655407206 | 123 M        |       | Hartf    |       |       | 123456789         |
+| lookups        | 987654324 | 1621655407206 | 123 Ma       |       | Hartfo   |       |       | 123456789         |
+| lookups        | 987654325 | 1621655407206 | 123 Mai      |       | Hartfor  |       |       | 123456789         |
+| lookups        | 987654326 | 1621655407206 | 123 Main     |       |          |       |       | 123456789         |
+| lookups        | 987654327 | 1621655407206 | 123 Main     |       |          |       |       | 123456789         |
+| lookups        | 987654328 | 1621655407206 | 123 Main S   |       |          |       |       | 123456789         |
+| lookups        | 987654329 | 1621655407206 | 123 Main St  |       |          |       |       | 123456789         |
 
 
 
@@ -56,4 +56,6 @@ The substrings have a min length of 3, since no searches are done on 1 or 2 char
   - With a relational DB, I'd implement more robust search that puts the wildcard matching logic into the query.
   - Also, it'd be easier to sort the results based on the address part the query matched with.
 - Add Auth, rate limiting
-
+- Version in the path?
+  - put v1 now vs. wait until there's a v2 to add it to the path?
+- Fix case with no matches found on search
