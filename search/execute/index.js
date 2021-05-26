@@ -60,11 +60,11 @@ exports.handler = async function execute(req) {
 //    limit: 5
 //  })
 
-  let zip_addresses = await data.get({
-    table: 'addresses',
-    key: query,
-    limit: 5
-  })
+//  let zip_addresses = await data.get({
+//    table: 'addresses',
+//    key: query,
+//    limit: 5
+//  })
 
 //  console.log('line1' + JSON.stringify(line1))
 //  console.log('line2' + JSON.stringify(line2))
@@ -76,7 +76,7 @@ exports.handler = async function execute(req) {
 //  console.log('line2_addresses' + JSON.stringify(line2_addresses)
 //  console.log('city_addresses' + JSON.stringify(city_addresses))
 //  console.log('state_addresses' + JSON.stringify(state_addresses))
-  console.log('zip_addresses' + JSON.stringify(zip_addresses))
+//  console.log('zip_addresses' + JSON.stringify(zip_addresses))
 
 
   // Get all unique address keys
@@ -105,7 +105,9 @@ exports.handler = async function execute(req) {
 //  for (let partialAddress of zip) {
 //    if ( addressKeys.indexOf(partialAddress.addressFK) == -1 ) {
     if (zip != null) {
-      addressKeys.push(zip.addressFK)
+        for (let zipItem of zip.addressFK) {
+            addressKeys.push(zipItem)
+        }
     }
 //  }
 
@@ -131,9 +133,9 @@ exports.handler = async function execute(req) {
 //  }
 //  for (let address of zip_addresses) {
 //    if ( addressKeys.indexOf(address.key) == -1 ) {
-      if (zip_addresses != null) {
-        addressKeys.push(zip_addresses.key)
-      }
+//      if (zip_addresses != null) {
+//        addressKeys.push(zip_addresses.key)
+//      }
 //    }
 //  }
 
