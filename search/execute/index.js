@@ -128,7 +128,7 @@ exports.handler = async function execute(req) {
 //      addressKeys.push(address.key)
 //    }
 //  }
-  for await (let address of zip_addresses) {
+  for (let address of zip_addresses) {
     if ( addressKeys.indexOf(address.key) == -1 ) {
       addressKeys.push(address.key)
     }
@@ -137,7 +137,7 @@ exports.handler = async function execute(req) {
   // Create query object to resolve address keys
   console.log('Create query object to resolve address keys')
   let queryObjects = []
-  for await (let addressKey of addressKeys) {
+  for (let addressKey of addressKeys) {
     let queryObject = {}
     queryObject.table = 'addresses'
     queryObject.key = addressKey
