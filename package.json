@@ -37,7 +37,7 @@
       },
       {
         "/addresses/deleteAll": {
-          "method": "post",
+          "method": "delete",
           "src": "/addresses/destroyAll"
         }
       },
