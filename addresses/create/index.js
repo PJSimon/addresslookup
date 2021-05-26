@@ -81,7 +81,7 @@ exports.handler = async function create(req) {
 //    createPartialAddressRecord(address.state, record.key)
     console.log("address.zip" + address.zip)
     console.log("record.key" + record.key)
-    createPartialAddressRecord(address.zip, record.key)
+    await createPartialAddressRecord(address.zip, record.key)
 
   return {
     // statusCode: 302,
@@ -98,7 +98,7 @@ exports.handler = async function create(req) {
   }
 }
 
-exports.handler = async function createPartialAddressRecord(addressField, FK) {
+async function createPartialAddressRecord(addressField, FK) {
   console.log("createPartialAddressRecord")
   for (var i = 2; i <= addressField.length; i++) {
     let key = addressField.substring(0,i)
