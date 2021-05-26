@@ -6,6 +6,7 @@ exports.handler = async function destroyAll(req) {
   let addressPages = {}
 
   do {
+    console.log("Get Addresses")
     addressPages = await data.get({
       table: 'addresses',
       limit: 25
@@ -13,6 +14,7 @@ exports.handler = async function destroyAll(req) {
 
     let addresses = []
     for await (let address of addressPages) {
+    console.log(address.key)
       await data.destroy({
           key: address.key,
           table: 'addresses'
@@ -22,6 +24,7 @@ exports.handler = async function destroyAll(req) {
 
 let partialAddressPages = {}
   do {
+  console.log("Get Partial Addresses")
       partialAddressPages = await data.get({
         table: 'partialAddresses',
         limit: 25
@@ -29,13 +32,14 @@ let partialAddressPages = {}
 
       let addresses = []
       for await (let address of partialAddressPages) {
+        console.log(address.key)
         await data.destroy({
             key: address.key,
             table: 'partialAddresses'
         })
       }
     } while (partialAddressPages != null)
-    
+
   return {
     statusCode: 204,
     headers: {
