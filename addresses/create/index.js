@@ -43,7 +43,7 @@ exports.handler = async function create(req) {
 //    })
 //  }
 
-  for (var i = 1; i < address.zip.length; i++) {
+  for (var i = 2; i <= address.zip.length; i++) {
     let key = address.zip.substring(0,i)
     let partialAddress = {}
 
@@ -57,7 +57,7 @@ exports.handler = async function create(req) {
     //If it exists, add the FK to the array, else create the record with a single-element array
     if (partialAddress != null) {
       if (partialAddress.addressFK.includes(record.key) == false) {
-        partialAddress.addressFK.substring(0, partialAddress.addressFK.length - 1) = partialAddress.addressFK + ", " + record.key + "]"
+        partialAddress.addressFK = partialAddress.addressFK.substring(0, partialAddress.addressFK.length - 1) + ", " + record.key + "]"
       }
     }
     else {

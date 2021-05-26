@@ -51,3 +51,7 @@ The substrings have a min length of 3, since no searches are done on 1 or 2 char
 - Make Delete clear out partialAddresses
 - Make clear database method
 - make Load Addresses method
+- Add tests
+- Use a more functional DB, else if current DB used, make Create transactional
+- Add Auth, rate limiting
+
