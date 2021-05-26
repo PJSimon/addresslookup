@@ -8,31 +8,31 @@ exports.handler = async function execute(req) {
   
 //  let line1 = await data.get({
 //    table: 'partialAddresses',
-//    line1: query,
+//    key: query,
 //    limit: 5
 //  })
 //
 //  let line2 = await data.get({
 //    table: 'partialAddresses',
-//    line2: query,
+//    key: query,
 //    limit: 5
 //  })
 //
 //  let city = await data.get({
 //    table: 'partialAddresses',
-//    city: query,
+//    key: query,
 //    limit: 5
 //  })
 //
 //  let state = await data.get({
 //    table: 'partialAddresses',
-//    state: query,
+//    key: query,
 //    limit: 5
 //  })
 
   let zip = await data.get({
     table: 'partialAddresses',
-    zip: query,
+    key: query,
     limit: 5
   })
 
