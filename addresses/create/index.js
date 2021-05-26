@@ -62,7 +62,7 @@ exports.handler = async function create(req) {
     }
     else {
       partialAddress = {
-        addressFK: "[" + record.key + "]"
+        addressFK: "{[" + record.key + "]}"
       }
     }
 
