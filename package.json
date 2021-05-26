@@ -18,13 +18,13 @@
         }
       },
       {
-        "/addresses/delete": {
+        "/addresses": {
           "method": "delete",
           "src": "/addresses/destroy"
         }
       },
       {
-        "/partialAddresses/delete": {
+        "/partialAddresses": {
           "method": "delete",
           "src": "/partialAddresses/destroy"
         }
