@@ -3,7 +3,7 @@ let data = require('@begin/data')
 
 exports.handler = async function execute(req) {
   let body = arc.http.helpers.bodyParser(req)
-  let query = body.query
+  let query = body.query.toUpperCase()
   console.log(query)
 
   let lookupItem = await data.get({
