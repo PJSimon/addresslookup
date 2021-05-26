@@ -31,7 +31,7 @@
       },
       {
         "/addresses/:id": {
-          "method": "post",
+          "method": "put",
           "src": "/addresses/update"
         }
       },

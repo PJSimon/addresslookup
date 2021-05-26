@@ -58,4 +58,3 @@ The substrings have a min length of 3, since no searches are done on 1 or 2 char
 - Add Auth, rate limiting
 - Version in the path?
   - put v1 now vs. wait until there's a v2 to add it to the path?
-- Fix case with no matches found on search
