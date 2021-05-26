@@ -19,13 +19,13 @@
       },
       {
         "/addresses/delete": {
-          "method": "post",
+          "method": "delete",
           "src": "/addresses/destroy"
         }
       },
       {
         "/partialAddresses/delete": {
-          "method": "post",
+          "method": "delete",
           "src": "/partialAddresses/destroy"
         }
       },
