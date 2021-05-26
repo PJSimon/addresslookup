@@ -43,38 +43,39 @@ exports.handler = async function create(req) {
 //    })
 //  }
 
-  for (var i = 2; i <= address.zip.length; i++) {
-    let key = address.zip.substring(0,i)
-    let partialAddress = {}
-
-    //check if partialAddress already exists
-    partialAddress = await data.get({
-      table: 'partialAddresses',
-      key: key,
-      limit: 5
-    })
-
-    //If it exists, add the FK to the array, else create the record with a single-element array
-    if (partialAddress != null) {
-      if (partialAddress.addressFK.includes(record.key) == false) {
-//        partialAddress.addressFK = partialAddress.addressFK.substring(0, partialAddress.addressFK.length - 2) + ", " + record.key + "]}"
-          partialAddress.addressFK.push(record.key)
-      }
-    }
-    else {
-      let FKs = []
-      FKs.push(record.key)
-      partialAddress = {
-        addressFK: FKs
-      }
-    }
-
-    //Create of update the record
-    await data.set({
-      table: 'partialAddresses',
-      key: key,
-      ...partialAddress
-    })
+//  for (var i = 2; i <= address.zip.length; i++) {
+//    let key = address.zip.substring(0,i)
+//    let partialAddress = {}
+//
+//    //check if partialAddress already exists
+//    partialAddress = await data.get({
+//      table: 'partialAddresses',
+//      key: key,
+//      limit: 5
+//    })
+//
+//    //If it exists, add the FK to the array, else create the record with a single-element array
+//    if (partialAddress != null) {
+//      if (partialAddress.addressFK.includes(record.key) == false) {
+////        partialAddress.addressFK = partialAddress.addressFK.substring(0, partialAddress.addressFK.length - 2) + ", " + record.key + "]}"
+//          partialAddress.addressFK.push(record.key)
+//      }
+//    }
+//    else {
+//      let FKs = []
+//      FKs.push(record.key)
+//      partialAddress = {
+//        addressFK: FKs
+//      }
+//    }
+//
+//    //Create of update the record
+//    await data.set({
+//      table: 'partialAddresses',
+//      key: key,
+//      ...partialAddress
+//    })
+    createPartialAddressRecord(address.zip, record.key)
   }
 
   return {
@@ -90,4 +91,38 @@ exports.handler = async function create(req) {
     },
     body: JSON.stringify(record)
   }
+}
+async function createPartialAddressRecord(addressField, FK) {
+  for (var i = 2; i <= addressField.length; i++) {
+    let key = addressField.substring(0,i)
+    let partialAddress = {}
+
+    //check if partialAddress already exists
+    partialAddress = await data.get({
+      table: 'partialAddresses',
+      key: key,
+      limit: 5
+    })
+
+    //If it exists, add the FK to the array, else create the record with a single-element array
+    if (partialAddress != null) {
+      if (partialAddress.addressFK.includes(FK) == false) {
+//        partialAddress.addressFK = partialAddress.addressFK.substring(0, partialAddress.addressFK.length - 2) + ", " + record.key + "]}"
+          partialAddress.addressFK.push(FK)
+      }
+    }
+    else {
+      let FKs = []
+      FKs.push(FK)
+      partialAddress = {
+        addressFK: FKs
+      }
+    }
+
+    //Create of update the record
+    await data.set({
+      table: 'partialAddresses',
+      key: key,
+      ...partialAddress
+    })
 }
