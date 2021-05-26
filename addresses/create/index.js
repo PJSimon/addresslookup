@@ -57,7 +57,7 @@ exports.handler = async function create(req) {
     //If it exists, add the FK to the array, else create the record with a single-element array
     if (partialAddress != null) {
       if (partialAddress.addressFK.includes(record.key) == false) {
-        partialAddress.addressFK = partialAddress.addressFK.substring(0, partialAddress.addressFK.length - 1) + ", " + record.key + "]}"
+        partialAddress.addressFK = partialAddress.addressFK.substring(0, partialAddress.addressFK.length - 2) + ", " + record.key + "]}"
       }
     }
     else {
