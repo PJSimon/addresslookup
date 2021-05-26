@@ -75,12 +75,10 @@ exports.handler = async function create(req) {
 //      key: key,
 //      ...partialAddress
 //    })
-//    createPartialAddressRecord(address.line1, record.key)
-//    createPartialAddressRecord(address.line2, record.key)
-//    createPartialAddressRecord(address.city, record.key)
-//    createPartialAddressRecord(address.state, record.key)
-    console.log("address.zip" + address.zip)
-    console.log("record.key" + record.key)
+    await createPartialAddressRecord(address.line1, record.key)
+    await createPartialAddressRecord(address.line2, record.key)
+    await createPartialAddressRecord(address.city, record.key)
+    await createPartialAddressRecord(address.state, record.key)
     await createPartialAddressRecord(address.zip, record.key)
 
   return {
