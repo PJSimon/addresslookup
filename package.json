@@ -24,12 +24,6 @@
         }
       },
       {
-        "/partialAddresses": {
-          "method": "delete",
-          "src": "/partialAddresses/destroy"
-        }
-      },
-      {
         "/addresses/:id": {
           "method": "put",
           "src": "/addresses/update"
